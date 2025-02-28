@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.idea.springboot.webflux</groupId>
-	<artifactId>springboot-webflux-microservices</artifactId>
+	<artifactId>springboot-webflux-commons</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-webflux-microservices</name>
-	<description>Reactive Programming with Webflux Course</description>
+	<name>springboot-webflux-commons</name>
+	<description>Commons of classes: dto, collection, etc.</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -26,23 +26,23 @@
 		<tag/>
 		<url/>
 	</scm>
-	<modules>
-		<module>springboot-webflux-commons</module>
-		<module>springboot-webflux-apirest</module>
-		<module>springboot-webflux-client</module>
-	</modules>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
