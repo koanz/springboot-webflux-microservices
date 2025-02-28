@@ -90,6 +90,11 @@
 			<artifactId>swagger-annotations</artifactId>
 			<version>2.2.28</version>
 		</dependency>
+		<dependency>
+			<groupId>com.idea.springboot.webflux</groupId>
+			<artifactId>springboot-webflux-commons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

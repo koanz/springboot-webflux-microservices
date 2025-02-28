@@ -12,6 +12,7 @@
 	<artifactId>springboot-webflux-microservices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-webflux-microservices</name>
+	<packaging>pom</packaging>
 	<description>Reactive Programming with Webflux Course</description>
 	<url/>
 	<licenses>
