@@ -1,11 +1,12 @@
-package com.idea.springboot.webflux.app.services;
+package com.idea.springboot.webflux.app.services.impl;
 
+import com.idea.springboot.webflux.app.exceptions.CustomNotFoundException;
 import com.idea.springboot.webflux.app.exceptions.ProductNotFoundException;
 import com.idea.springboot.webflux.app.models.dtos.ProductDTO;
+import com.idea.springboot.webflux.app.services.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -29,15 +30,14 @@ public class ProductServiceImpl implements ProductService {
                 .retrieve()
                 .bodyToFlux(ProductDTO.class)
                 .onErrorResume(e -> {
-                    // Manejo de errores
-                    System.err.println("Error al obtener el listado de productos: " + e.getMessage());
-                    return Flux.empty(); // Devuelve un Flux vacío en caso de error
+                    logger.error("Error Flux<ProductDTO> No records Found: " + e.getMessage());
+                    return Mono.error(new CustomNotFoundException("No records exist"));
                 });
     }
 
     @Override
     public Mono<ProductDTO> findById(String id) {
-        logger.info("Retrieve by id Mono of ProductDTO via WebClient");
+        logger.info("Retrieve Mono<ProductDTO> by id  via WebClient");
 
         return webClient.get()
                 .uri("/{id}", id)  // Asegúrate de que la variable {id} se expanda correctamente aquí

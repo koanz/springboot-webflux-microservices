@@ -6,7 +6,7 @@ import reactor.core.publisher.Mono;
 
 public interface ProductService {
     public Flux<ProductDTO> getAll();
-    public Mono<ProductDTO> findById();
+    public Mono<ProductDTO> findById(String id);
     public Mono<ProductDTO> save(ProductDTO request);
     public Mono<ProductDTO> update(String id, ProductDTO request);
     public Mono<Void> delete(String id);
