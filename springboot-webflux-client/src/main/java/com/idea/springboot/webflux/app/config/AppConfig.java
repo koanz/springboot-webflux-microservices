@@ -1,5 +1,6 @@
 package com.idea.springboot.webflux.app.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,8 @@ public class AppConfig {
 
     @Bean
     public WebClient registerWebClient() {
-        return WebClient.create(uri);
+        return WebClient.builder()
+                .baseUrl(uri)
+                .build();
     }
 }
