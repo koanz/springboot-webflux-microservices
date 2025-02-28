@@ -20,7 +20,7 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 @Configuration
-public class ClientRouterFunction {
+public class ClientRouterFunctionConfig {
     @Bean
     @RouterOperations({
             @RouterOperation(path = "/v2/clients/",
