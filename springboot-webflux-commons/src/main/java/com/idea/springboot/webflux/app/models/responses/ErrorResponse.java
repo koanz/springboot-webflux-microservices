@@ -1,4 +1,4 @@
-package com.idea.springboot.webflux.app.models;
+package com.idea.springboot.webflux.app.models.responses;
 
 import java.util.List;
 
