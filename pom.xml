@@ -29,6 +29,7 @@
 	</scm>
 	<modules>
 		<module>springboot-webflux-commons</module>
+		<module>springboot-webflux-eureka-server</module>
 		<module>springboot-webflux-apirest</module>
 		<module>springboot-webflux-client</module>
 	</modules>
