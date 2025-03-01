@@ -25,7 +25,7 @@ public class CustomRequestProductValidator implements Validator {
 
         if(request.getCategory() != null) {
             if(request.getCategory().getId() == null) {
-                errors.rejectValue("category.id", "field.required", "Field Category id is required.");
+                errors.rejectValue("id", "field.required", "Field Category id is required.");
             }
         }
 
