@@ -22,13 +22,13 @@ public class ProductServiceImpl implements ProductService {
     private Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     @Autowired
-    private WebClient webClient;
+    private WebClient.Builder webClient;
 
     @Override
     public Flux<ProductDTO> getAll() {
         logger.info("Retrieve Flux of ProductDTO via WebClient");
 
-        return webClient.get()
+        return webClient.build().get()
                 .uri("/")
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
@@ -43,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
     public Mono<ProductDTO> findById(String id) {
         logger.info("Retrieve Mono<ProductDTO> by id via WebClient");
 
-        return webClient.get()
+        return webClient.build().get()
                 .uri("/{id}", id)  // Asegúrate de que la variable {id} se expanda correctamente aquí
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
@@ -58,7 +58,7 @@ public class ProductServiceImpl implements ProductService {
     public Mono<ProductDTO> save(ProductDTO request) {
         logger.info("Create Product via WebClient");
 
-        return webClient.post()
+        return webClient.build().post()
                 .uri("/create")
                 .accept(MediaType.APPLICATION_JSON)
                 .bodyValue(request)
@@ -70,7 +70,7 @@ public class ProductServiceImpl implements ProductService {
     public Mono<ProductDTO> update(String id, ProductDTO request) {
         logger.info("Update Product via WebClient");
 
-        return webClient.put()
+        return webClient.build().put()
                 .uri("/update/{id}", id)
                 .accept(MediaType.APPLICATION_JSON)
                 .bodyValue(request)
@@ -107,7 +107,7 @@ public class ProductServiceImpl implements ProductService {
     public Mono<MessageResponse> delete(String id) {
         logger.info("Delete Product by id (WebClient): " + id);
 
-        return webClient.delete()
+        return webClient.build().delete()
                 .uri("/delete/{id}", id)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()

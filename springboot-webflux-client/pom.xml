@@ -56,6 +56,18 @@
 			<artifactId>springboot-webflux-commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

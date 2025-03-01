@@ -8,7 +8,7 @@
 		<version>3.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.idea.springboot.webflux.client</groupId>
+	<groupId>com.idea.springboot.webflux</groupId>
 	<artifactId>springboot-webflux-apirest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-webflux-apirest</name>
@@ -95,6 +95,12 @@
 			<artifactId>springboot-webflux-commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -19,6 +19,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Date;
+import java.util.Objects;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -35,14 +36,18 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Flux<ProductDTO> getAll() {
+        logger.info("Find all Product");
+
         return repository.findAll()
-                .filter(product -> product != null)
+                .filter(Objects::nonNull)
                 .map(mapper::toDto)
                 .switchIfEmpty(Mono.error(new CustomNotFoundException("No records exist")));
     }
 
     @Override
     public Mono<ProductDTO> findById(String id) {
+        logger.info("Find Product by id: " + id);
+
         return repository.findById(id)
                 .map(mapper::toDto)
                 .switchIfEmpty(Mono.error(new ProductNotFoundException(id)));
