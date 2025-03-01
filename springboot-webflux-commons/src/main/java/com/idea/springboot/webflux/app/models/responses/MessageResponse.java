@@ -1,11 +1,7 @@
-package com.idea.springboot.webflux.app.models;
+package com.idea.springboot.webflux.app.models.responses;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Component
