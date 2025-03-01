@@ -70,8 +70,10 @@ public class ProductServiceImpl implements ProductService {
         logger.info("Updating Product: " + id);
 
         return repository.findById(id)
+                .switchIfEmpty(Mono.error(new ProductNotFoundException(request.getId())))
                 .flatMap(existingProduct -> {
                     return categoryService.findById(request.getCategory().getId())
+                            .switchIfEmpty(Mono.error(new CategoryNotFountByIdException(request.getCategory().getId())))
                             .flatMap(category -> {
                                 existingProduct.setName(request.getName());
                                 existingProduct.setPrice(request.getPrice());
@@ -80,7 +82,10 @@ public class ProductServiceImpl implements ProductService {
                             });
                 })
                 .map(mapper::toDto)
-                .switchIfEmpty(Mono.error(new ProductNotFoundException(id)));
+                .onErrorResume(e -> {
+                    logger.error("Unexpected error while trying to update a Product: ", e);
+                    return Mono.error(e);
+                });
     }
 
     @Transactional
@@ -92,7 +97,6 @@ public class ProductServiceImpl implements ProductService {
                 .switchIfEmpty(Mono.error(new ProductNotFoundException(id)))
                 .flatMap(product -> repository.delete(product))
                 .doOnError(throwable -> logger.error("Error in delete method", throwable));
-
     }
 
     @Override

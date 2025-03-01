@@ -1,6 +1,6 @@
 package com.idea.springboot.webflux.app;
 
-import com.idea.springboot.webflux.app.models.MessageResponse;
+import com.idea.springboot.webflux.app.models.responses.MessageResponse;
 import com.idea.springboot.webflux.app.models.dtos.CategoryDTO;
 import com.idea.springboot.webflux.app.models.dtos.ProductDTO;
 

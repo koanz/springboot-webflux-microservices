@@ -1,6 +1,6 @@
 package com.idea.springboot.webflux.app.handler;
 
-import com.idea.springboot.webflux.app.models.MessageResponse;
+import com.idea.springboot.webflux.app.models.responses.MessageResponse;
 import com.idea.springboot.webflux.app.models.dtos.ProductDTO;
 import com.idea.springboot.webflux.app.services.ProductService;
 import com.idea.springboot.webflux.app.validations.CustomRequestProductValidator;
