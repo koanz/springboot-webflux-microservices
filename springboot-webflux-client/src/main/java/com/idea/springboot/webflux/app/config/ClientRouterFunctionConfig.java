@@ -112,9 +112,9 @@ public class ClientRouterFunctionConfig {
         return RouterFunctions.route()
                 .GET("/api/v2/clients/", clientHandler::getAll)
                 .GET("/api/v2/clients/{id}", clientHandler::findById)
-                /*.POST("/api/v2/clients/create", clientHandler::save)
+                .POST("/api/v2/clients/create", clientHandler::save)
                 .PUT("/api/v2/clients/update/{id}", clientHandler::update)
-                .DELETE("/api/v2/clients/delete/{id}", clientHandler::delete)*/
+                .DELETE("/api/v2/clients/delete/{id}", clientHandler::delete)
                 .build();
     }
 }
